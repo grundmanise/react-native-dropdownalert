@@ -44,7 +44,8 @@ export default class DropdownAlert extends Component {
     activeStatusBarBackgroundColor: PropTypes.string,
     inactiveStatusBarStyle: PropTypes.string,
     inactiveStatusBarBackgroundColor: PropTypes.string,
-    updateStatusBar: PropTypes.bool
+    updateStatusBar: PropTypes.bool,
+    zIndex: PropTypes.number,
   }
   static defaultProps =  {
     onClose: null,
@@ -99,7 +100,8 @@ export default class DropdownAlert extends Component {
     activeStatusBarBackgroundColor: StatusBarDefaultBackgroundColor,
     inactiveStatusBarStyle: StatusBarDefaultBarStyle,
     inactiveStatusBarBackgroundColor: StatusBarDefaultBackgroundColor,
-    updateStatusBar: true
+    updateStatusBar: true,
+    zIndex: 0,
   }
   constructor(props) {
     super(props)
@@ -416,7 +418,8 @@ export default class DropdownAlert extends Component {
               position: 'absolute',
               top: this.state.topValue,
               left: 0,
-              right: 0
+              right: 0,
+              zIndex: this.props.zIndex,
             }}>
             <TouchableHighlight
                 onPress={(this.props.showCancel) ? null : () => this.onClose('tap')}
